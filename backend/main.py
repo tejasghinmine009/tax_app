@@ -10,7 +10,7 @@ import uuid
 from backend import pdf_utils
 import uuid as uuidlib
 from fastapi import Body
-from backend.gemini_utils import call_gemini
+from backend import gemini_utils
 
 # Load environment variables from .env
 load_dotenv()
@@ -261,7 +261,7 @@ def chat(session_id: str = Body(...), user_message: str = Body("")):
             "Ask a single, relevant follow-up question to help them save more tax. Be concise."
         )
         messages = [{"role": "user", "content": prompt}]
-        question = call_gemini(messages)
+        question = gemini_utils.call_gemini(messages)
         return {"question": question}
     else:
         # Second call: generate personalized suggestions
@@ -272,5 +272,5 @@ def chat(session_id: str = Body(...), user_message: str = Body("")):
             "Now, provide 2-4 actionable, personalized tax-saving suggestions in a friendly, readable format."
         )
         messages = [{"role": "user", "content": prompt}]
-        suggestions = call_gemini(messages)
+        suggestions = gemini_utils.call_gemini(messages)
         return {"suggestions": suggestions} 
