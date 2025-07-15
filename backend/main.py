@@ -10,7 +10,7 @@ import uuid
 from backend import pdf_utils
 import uuid as uuidlib
 from fastapi import Body
-from gemini_utils import call_gemini
+from backend.gemini_utils import call_gemini
 
 # Load environment variables from .env
 load_dotenv()
