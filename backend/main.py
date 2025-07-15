@@ -7,7 +7,7 @@ from fastapi import File, UploadFile, Form
 from fastapi.responses import JSONResponse
 import shutil
 import uuid
-import pdf_utils
+from backend import pdf_utils
 import uuid as uuidlib
 from fastapi import Body
 from gemini_utils import call_gemini
