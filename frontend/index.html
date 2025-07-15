@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Advisor - Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Aptos+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+</head>
+<body>
+  <header class="header">
+    <span class="logo">
+      <img src="assets/logo.svg" alt="Tax Advisor Logo" class="logo-img" height="32" style="vertical-align:middle;margin-right:0.5rem;">
+      Tax Advisor
+    </span>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="upload.html">Upload</a>
+      <a href="#help">Help</a>
+    </nav>
+  </header>
+  <div class="container card" style="position:relative;overflow:hidden;">
+    <!-- Subtle SVG background shape -->
+    <svg class="bg-shape" width="420" height="180" viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:-40px;left:-60px;z-index:0;opacity:0.13;pointer-events:none;"><ellipse cx="210" cy="90" rx="180" ry="60" fill="#2563eb"/></svg>
+    <!-- Hero SVG illustration -->
+    <div class="hero-illustration" style="position:relative;z-index:1;">
+      <svg width="100%" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="200" cy="60" rx="180" ry="40" fill="#e0e7ff"/>
+        <rect x="160" y="30" width="80" height="60" rx="12" fill="#2563eb"/>
+        <rect x="180" y="50" width="40" height="20" rx="4" fill="#fff"/>
+        <circle cx="200" cy="60" r="8" fill="#facc15"/>
+      </svg>
+    </div>
+    <h1 style="position:relative;z-index:1;">Welcome to Tax Advisor</h1>
+    <p class="subtitle" style="position:relative;z-index:1;">Analyze your tax liabilities and get personalized, AI-powered tax-saving strategies.</p>
+    <button id="start-btn" style="position:relative;z-index:1;">Start</button>
+    <!-- Features section -->
+    <div class="features" style="position:relative;z-index:1;">
+      <div class="feature">
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#facc15"/><path d="M8 12l2 2 4-4" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Secure & Private</span>
+      </div>
+      <div class="feature">
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" fill="#2563eb"/><path d="M8 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>AI-Powered Insights</span>
+      </div>
+      <div class="feature">
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#e0e7ff"/><path d="M8 12h8" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Easy to Use</span>
+      </div>
+    </div>
+    <hr class="section-divider" style="position:relative;z-index:1;" />
+    <div id="health-status" class="status" style="position:relative;z-index:1;"></div>
+  </div>
+  <footer class="footer">
+    <div>© 2024 Tax Advisor. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#faq">FAQ</a> | <a href="#help">Help</a> | <a href="mailto:support@taxadvisor.com">Contact</a>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('start-btn').onclick = function() {
+      window.location.href = 'upload.html';
+    };
+  </script>
+  <script src="script.js"></script>
+</body>
+</html> 

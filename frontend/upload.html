@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload PDF - Tax Advisor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Aptos+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+</head>
+<body>
+  <header class="header">
+    <span class="logo">
+      <img src="assets/logo.svg" alt="Tax Advisor Logo" class="logo-img" height="32" style="vertical-align:middle;margin-right:0.5rem;">
+      Tax Advisor
+    </span>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="upload.html">Upload</a>
+      <a href="#help">Help</a>
+    </nav>
+  </header>
+  <div class="container card" style="position:relative;overflow:hidden;">
+    <svg class="bg-shape" width="420" height="180" viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:-40px;left:-60px;z-index:0;opacity:0.13;pointer-events:none;"><ellipse cx="210" cy="90" rx="180" ry="60" fill="#2563eb"/></svg>
+    <div class="stepper" id="wizard-stepper">
+      <div class="step active" data-step="0"><span>1</span> Upload</div>
+      <div class="step" data-step="1"><span>2</span> Review</div>
+      <div class="step" data-step="2"><span>3</span> Choose Regime</div>
+      <div class="step" data-step="3"><span>4</span> Compare</div>
+    </div>
+    <!-- Step 1: Upload -->
+    <div class="step-content" id="step-upload">
+      <h2>Upload Your Pay Slip or Form 16 (PDF)</h2>
+      <hr class="section-divider" />
+      <input type="file" id="pdf-input" accept="application/pdf">
+      <button id="upload-btn">Upload & Extract</button>
+      <div id="upload-status"></div>
+    </div>
+    <!-- Step 2: Review -->
+    <form id="step-review" class="review-card step-content" style="display:none;">
+      <div class="review-header">
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="6" fill="#2563eb"/><path d="M8 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Review & Edit Extracted Data</span>
+      </div>
+      <div class="review-fields">
+        <label>Gross Salary: <input name="gross_salary"></label>
+        <label>Basic Salary: <input name="basic_salary"></label>
+        <label>HRA Received: <input name="hra_received"></label>
+        <label>Rent Paid: <input name="rent_paid"></label>
+        <label>Deduction 80C: <input name="deduction_80c"></label>
+        <label>Deduction 80D: <input name="deduction_80d"></label>
+        <label>Standard Deduction: <input name="standard_deduction"></label>
+        <label>Professional Tax: <input name="professional_tax"></label>
+        <label>TDS: <input name="tds"></label>
+      </div>
+      <div style="display:flex;gap:1rem;width:100%;justify-content:space-between;">
+        <button type="button" class="review-save-btn" id="back-to-upload">Back</button>
+        <button type="submit" class="review-save-btn">Confirm & Next</button>
+      </div>
+      <div id="save-status"></div>
+    </form>
+    <!-- Step 3: Regime Selection -->
+    <div id="step-regime" class="regime-card step-content" style="display:none;">
+      <!-- Regime section will be injected here by JS -->
+    </div>
+    <!-- Step 4: Comparison -->
+    <div id="step-compare" class="step-content" style="display:none;">
+      <div id="comparison-cards"></div>
+      <button id="back-to-regime" class="review-save-btn" style="margin-top:2rem;max-width:300px;">Back</button>
+      <button id="next-to-gemini" class="review-save-btn" style="margin-top:2rem;max-width:300px;">Next: AI Advisor</button>
+    </div>
+    <!-- Step 5: Gemini Advisor -->
+    <div id="step-gemini" class="step-content" style="display:none;">
+      <div class="gemini-card">
+        <div id="gemini-question"></div>
+        <form id="gemini-form" style="display:none;flex-direction:row;align-items:center;margin-top:1.2rem;gap:1rem;">
+          <input type="text" id="gemini-answer" placeholder="Your answer..." required style="width:80%;padding:0.7rem;">
+          <button type="submit" class="review-save-btn">Get Suggestions</button>
+        </form>
+        <div id="gemini-loading" style="display:none;margin-top:1.2rem;">Loading...</div>
+        <div id="gemini-suggestions" style="margin-top:1.2rem;"></div>
+        <button id="back-to-compare" class="review-save-btn" style="margin-top:2rem;max-width:300px;">Back</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div>© 2024 Tax Advisor. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#faq">FAQ</a> | <a href="#help">Help</a> | <a href="mailto:support@taxadvisor.com">Contact</a>
+    </div>
+  </footer>
+  <script src="upload.js"></script>
+</body>
+</html> 
